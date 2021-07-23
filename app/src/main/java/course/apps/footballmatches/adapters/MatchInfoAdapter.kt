@@ -53,6 +53,8 @@ class MatchInfoAdapter(private val context: Context) : RecyclerView.Adapter<Matc
         val textViewLeagueName: TextView = itemView.findViewById(R.id.textViewLeagueName)
         val textViewSeason: TextView = itemView.findViewById(R.id.textViewSeason)
         val textViewRound: TextView = itemView.findViewById(R.id.textViewRound)
+        val textViewHomeName: TextView = itemView.findViewById(R.id.textViewHomeName)
+        val textViewAwayName: TextView = itemView.findViewById(R.id.textViewAwayName)
 
 
         val imageViewLeagueLogo: ImageView = itemView.findViewById(R.id.imageViewLeagueLogo)
@@ -73,6 +75,8 @@ class MatchInfoAdapter(private val context: Context) : RecyclerView.Adapter<Matc
         {
             with(match)
             {
+                textViewHomeName.text = homeTeamName
+                textViewAwayName.text = awayTeamName
                 textViewDate.text = getFormattedTime()
                 textViewStatusOfMatch.text = statusOfMatch
                 val home: String; val away: String
@@ -91,6 +95,7 @@ class MatchInfoAdapter(private val context: Context) : RecyclerView.Adapter<Matc
                 textViewSeason.text = season.toString()
                 textViewRound.text = round
 
+                // TODO: countryFlagImg is SVG, need to fix it
                 //Picasso.get().load(countryFlagImg).into(imageViewCountryFlag)
                 Picasso.get().load(leagueLogoImg).into(imageViewLeagueLogo)
                 Picasso.get().load(homeTeamLogo).into(imageViewHomeTeamLogo)

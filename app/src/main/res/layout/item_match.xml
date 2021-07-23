@@ -48,6 +48,7 @@
             tools:text="Premier League" />
 
         <View
+            android:id="@+id/separator1"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginStart="8dp"
@@ -119,15 +120,16 @@
             app:layout_constraintTop_toTopOf="@id/textViewHomeGoals" />
 
         <View
+            android:id="@+id/separator2"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:background="@android:color/darker_gray"
-            app:layout_constraintTop_toBottomOf="@id/imageViewHomeTeamLogo"
+            app:layout_constraintBottom_toTopOf="@id/textViewSeason"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/textViewSeason" />
+            app:layout_constraintTop_toBottomOf="@id/textViewHomeName" />
 
         <TextView
             android:id="@+id/textViewSeason"
@@ -137,7 +139,7 @@
             android:layout_marginTop="16dp"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageViewHomeTeamLogo"
+            app:layout_constraintTop_toBottomOf="@id/textViewHomeName"
             tools:text="2020" />
 
         <TextView
@@ -183,6 +185,28 @@
             app:layout_constraintBottom_toBottomOf="@+id/textViewLeagueName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/textViewLeagueName" />
+
+        <TextView
+            android:id="@+id/textViewHomeName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Brentford"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/separator2"
+            app:layout_constraintEnd_toEndOf="@+id/imageViewHomeTeamLogo"
+            app:layout_constraintStart_toStartOf="@+id/imageViewHomeTeamLogo"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewHomeTeamLogo" />
+
+        <TextView
+            android:id="@+id/textViewAwayName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Arsenal"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/separator2"
+            app:layout_constraintEnd_toEndOf="@+id/imageViewAwayTeamLogo"
+            app:layout_constraintStart_toStartOf="@+id/imageViewAwayTeamLogo"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewAwayTeamLogo" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
