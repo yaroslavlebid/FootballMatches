@@ -24,7 +24,7 @@ data class FixtureInfo(
 
     @SerializedName("timestamp")
     @Expose
-    val timestamp: Int? = null,
+    val timestamp: Long? = null,
 
     @SerializedName("status")
     @Expose

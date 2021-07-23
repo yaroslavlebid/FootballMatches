@@ -6,6 +6,7 @@ import androidx.room.PrimaryKey
 import com.google.gson.annotations.Expose
 
 import com.google.gson.annotations.SerializedName
+import course.apps.footballmatches.utils.convertTimestampToDate
 
 
 @Entity(tableName = "matches_list")
@@ -13,7 +14,7 @@ data class Match(
         @PrimaryKey
         @NonNull
         var id: Int? = 0,
-        var timestamp: Int? = null,
+        var timestamp: Long? = null,
         var statusOfMatch: String? = null,
         var timeElapsed: Int? = null,
         var homeGoals: Int? = null,
@@ -30,5 +31,13 @@ data class Match(
         var awayTeamName: String? = null,
         var awayTeamLogo: String? = null,
         var isAwayTeamWinner: Boolean? = null,
-        var season: Int? = null
+        var season: Int? = null,
+        var round: String? = null
 )
+
+{
+        fun getFormattedTime() : String
+        {
+                return convertTimestampToDate(timestamp)
+        }
+}

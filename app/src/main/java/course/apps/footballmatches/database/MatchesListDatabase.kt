@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import course.apps.footballmatches.pojo.Match
 
 
-@Database(entities = [Match::class], version = 1, exportSchema = false)
+@Database(entities = [Match::class], version = 2, exportSchema = false)
 abstract class MatchesListDatabase() : RoomDatabase() {
     companion object {
 
@@ -21,6 +21,7 @@ abstract class MatchesListDatabase() : RoomDatabase() {
             {
                 database?.let { return it }
                 val instance = Room.databaseBuilder(context, MatchesListDatabase::class.java, DB_NAME)
+                        .fallbackToDestructiveMigration()
                         .build()
                 database = instance
                 return instance

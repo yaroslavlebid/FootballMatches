@@ -28,6 +28,7 @@ class MatchesListViewModel(application: Application) : AndroidViewModel(applicat
                 .subscribeOn(Schedulers.io())
                 .subscribe({
                     Log.d("TEST_OF_DATA_LOADING", "Success: $it")
+                    db.matchesListDao().clearMatchesList()
                     db.matchesListDao().insertMatchesList(it)
                 },{
                     Log.d("TEST_OF_DATA_LOADING", "Failure: $it")
@@ -56,6 +57,7 @@ class MatchesListViewModel(application: Application) : AndroidViewModel(applicat
             match.leagueLogoImg = league.logoImg
             match.countryFlagImg = league.flagImg
             match.season = league.season
+            match.round = league.round
             val goalsJson = jsonObject.getAsJsonObject(ApiService.GOALS_KEY)
             val goals = Gson().fromJson(goalsJson, GoalsInfo::class.java)
             match.homeGoals = goals.home

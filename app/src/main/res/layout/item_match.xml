@@ -14,26 +14,32 @@
 
         <ImageView
             android:id="@+id/imageViewCountryFlag"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="30dp"
+            android:layout_height="25dp"
             android:layout_margin="4dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="7dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewLeagueLogo"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@android:drawable/btn_dialog" />
+            app:layout_constraintTop_toTopOf="@+id/imageViewLeagueLogo"
+            app:layout_constraintVertical_bias="0.533"
+            tools:src="@drawable/tools_country_flag" />
 
         <ImageView
             android:id="@+id/imageViewLeagueLogo"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_margin="4dp"
-            app:layout_constraintStart_toEndOf="@id/imageViewCountryFlag"
+            app:layout_constraintBottom_toTopOf="@+id/imageViewHomeTeamLogo"
+            app:layout_constraintStart_toEndOf="@+id/imageViewCountryFlag"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@android:drawable/btn_star_big_on" />
+            tools:src="@drawable/tools_league_country" />
 
         <TextView
             android:id="@+id/textViewLeagueName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:padding="4dp"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="@id/imageViewLeagueLogo"
@@ -41,14 +47,37 @@
             app:layout_constraintTop_toTopOf="@id/imageViewLeagueLogo"
             tools:text="Premier League" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintBottom_toTopOf="@id/imageViewHomeTeamLogo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageViewLeagueLogo" />
+
         <ImageView
             android:id="@+id/imageViewHomeTeamLogo"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imageViewLeagueLogo"
-            tools:src="@android:drawable/ic_lock_power_off" />
+            tools:src="@drawable/tools_home_team_logo" />
+
+        <ImageView
+            android:id="@+id/imageViewAwayTeamLogo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewAwayGoals"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textViewAwayGoals"
+            app:layout_constraintTop_toTopOf="@+id/textViewAwayGoals"
+            tools:src="@drawable/tools_away_team_logo" />
 
         <TextView
             android:id="@+id/textViewHomeGoals"
@@ -64,16 +93,96 @@
             tools:text="1" />
 
         <TextView
+            android:id="@+id/textViewAwayGoals"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:textColor="@color/black"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewLabelHyphen"
+            app:layout_constraintStart_toEndOf="@+id/textViewLabelHyphen"
+            app:layout_constraintTop_toTopOf="@+id/textViewLabelHyphen"
+            tools:text="1" />
+
+        <TextView
             android:id="@+id/textViewLabelHyphen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="16dp"
             android:text="-"
+            android:textColor="@color/black"
             android:textSize="36sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/textViewHomeGoals"
             app:layout_constraintStart_toEndOf="@id/textViewHomeGoals"
             app:layout_constraintTop_toTopOf="@id/textViewHomeGoals" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintTop_toBottomOf="@id/imageViewHomeTeamLogo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/textViewSeason" />
+
+        <TextView
+            android:id="@+id/textViewSeason"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewHomeTeamLogo"
+            tools:text="2020" />
+
+        <TextView
+            android:id="@+id/textViewLabelHyphen2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="-"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewSeason"
+            app:layout_constraintStart_toEndOf="@+id/textViewSeason"
+            app:layout_constraintTop_toTopOf="@+id/textViewSeason" />
+
+        <TextView
+            android:id="@+id/textViewRound"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewLabelHyphen2"
+            app:layout_constraintStart_toEndOf="@+id/textViewLabelHyphen2"
+            app:layout_constraintTop_toTopOf="@+id/textViewSeason"
+            tools:text="Regular Season - 1" />
+
+        <TextView
+            android:id="@+id/textViewDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="8dp"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewRound"
+            tools:text="Saturday, 14 August 2021 р., 14:00:00" />
+
+        <TextView
+            android:id="@+id/textViewStatusOfMatch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Match Finished"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewLeagueName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textViewLeagueName" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
