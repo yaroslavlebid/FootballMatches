@@ -3,6 +3,7 @@ package course.apps.footballmatches
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import com.google.gson.Gson
 import course.apps.footballmatches.api.ApiFactory
 import course.apps.footballmatches.api.ApiService
@@ -65,10 +66,12 @@ class MatchesListViewModel(application: Application) : AndroidViewModel(applicat
             val teamJson = jsonObject.getAsJsonObject(ApiService.TEAMS_KEY)
             val team = Gson().fromJson(teamJson, TeamsInfo::class.java)
             match.homeTeamName = team.home?.name
+            match.homeTeamId = team.home?.id
             match.homeTeamLogo = team.home?.logo
             match.isHomeTeamWinner = team.home?.winner
 
             match.awayTeamName = team.away?.name
+            match.awayTeamId = team.away?.id
             match.awayTeamLogo = team.away?.logo
             match.isAwayTeamWinner = team.away?.winner
             result.add(match)
@@ -76,6 +79,10 @@ class MatchesListViewModel(application: Application) : AndroidViewModel(applicat
         return result
     }
 
+    fun getMatchById(id: Int) : LiveData<Match>
+    {
+        return db.matchesListDao().getMatchById(id)
+    }
 
     override fun onCleared() {
         super.onCleared()

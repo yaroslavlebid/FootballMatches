@@ -25,10 +25,12 @@ data class Match(
         var countryFlagImg: String? = null,
 
         var homeTeamName: String? = null,
+        var homeTeamId: Int? = null,
         var homeTeamLogo: String? = null,
         var isHomeTeamWinner: Boolean? = null,
 
         var awayTeamName: String? = null,
+        var awayTeamId: Int? = null,
         var awayTeamLogo: String? = null,
         var isAwayTeamWinner: Boolean? = null,
         var season: Int? = null,

@@ -101,6 +101,10 @@ class MatchInfoAdapter(private val context: Context) : RecyclerView.Adapter<Matc
                 Picasso.get().load(homeTeamLogo).into(imageViewHomeTeamLogo)
                 Picasso.get().load(awayTeamLogo).into(imageViewAwayTeamLogo)
             }
+
+            itemView.setOnClickListener {
+                onMatchClickListener?.onMatchClick(match)
+            }
         }
     }
 
