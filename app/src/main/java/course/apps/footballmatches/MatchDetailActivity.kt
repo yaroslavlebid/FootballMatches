@@ -5,8 +5,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Layout
+import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
+import androidx.lifecycle.Observer
 import com.squareup.picasso.Picasso
 import course.apps.footballmatches.databinding.ActivityMatchDetailBinding
 
@@ -24,13 +26,16 @@ class MatchDetailActivity : AppCompatActivity() {
             finish()
             return
         }
-        val matchId = intent.getIntExtra(EXTRA_MATCH_ID, -1) ?: return
+        val matchId = intent.getIntExtra(EXTRA_MATCH_ID, -1)
+        if(matchId == -1)
+            return
         val viewModel by viewModels<MatchesListViewModel>()
-        viewModel.getMatchById(matchId).observe(this, {
+        viewModel.getMatchById(matchId).observe(this, Observer {
             with(binding.itemMatch)
             {
                 with(it)
                 {
+                    Log.d("TEST_SELECTED_MATCH", "Current match: $it")
                     textViewHomeName.text = homeTeamName
                     textViewAwayName.text = awayTeamName
                     textViewDate.text = getFormattedTime()

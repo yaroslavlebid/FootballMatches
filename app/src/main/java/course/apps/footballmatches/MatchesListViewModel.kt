@@ -18,9 +18,9 @@ class MatchesListViewModel(application: Application) : AndroidViewModel(applicat
 
     val matchesList = db.matchesListDao().getMatchesList()
 
-    init {
+    /*init {
         loadData()
-    }
+    }*/
 
     fun loadData()
     {

@@ -38,7 +38,7 @@ class MatchesListActivity : AppCompatActivity() {
         recyclerView.adapter = adapter
 
         val viewModel by viewModels<MatchesListViewModel>()
-        //viewModel.loadData()
+        viewModel.loadData()
 
         viewModel.matchesList.observe(this, Observer {
             adapter.matchesList = it
