@@ -14,7 +14,7 @@
         <activity
             android:name=".MatchDetailActivity"
             android:label="@string/title_activity_match_detail"
-            android:theme="@style/Theme.FootballMatches.NoActionBar"></activity>
+            android:theme="@style/Theme.FootballMatches" />
         <activity android:name=".MatchesListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

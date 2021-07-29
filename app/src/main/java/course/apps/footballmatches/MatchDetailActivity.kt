@@ -30,6 +30,7 @@ class MatchDetailActivity : AppCompatActivity() {
         if(matchId == -1)
             return
         val viewModel by viewModels<MatchesListViewModel>()
+
         viewModel.getMatchById(matchId).observe(this, Observer {
             with(binding.itemMatch)
             {
@@ -63,6 +64,7 @@ class MatchDetailActivity : AppCompatActivity() {
                 }
             }
         })
+
     }
 
     companion object {
